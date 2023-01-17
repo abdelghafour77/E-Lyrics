@@ -10,6 +10,7 @@ module.exports = {
         teal: '#00ADB5',
         grey: '#EEEEEE',
         white: '#FAFAFA',
+        transparentBlack: '#00000066',
         // purple: '#4D148C',
         // orange: '#FF6600',
         // orange_h: '#d55500',
