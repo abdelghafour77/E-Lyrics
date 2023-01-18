@@ -39,9 +39,9 @@ class User extends Connection
     $result = $stmt->fetch();
 
     if ($result['id'] == '') {
-      $ins = "INSERT INTO `users` (first_name,last_name,email,password)VALUES(?,?,?,?)";
+      $ins = "INSERT INTO `users` (full_name,email,password)VALUES(?,?,?)";
       $stmt = $this->connect()->prepare($ins);
-      $stmt->execute([$this->email, $this->password]);
+      $stmt->execute([$this->fullName, $this->email, $this->password]);
       header('location:../login.php');
       $_SESSION['type_message'] = "success";
       $_SESSION['message'] = "Registration has been added successfully !";

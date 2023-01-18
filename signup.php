@@ -12,7 +12,7 @@
 <body class="backgroundd">
   <div id="coverr" class="min-h-screen flex items-center justify-center mx-auto">
     <div id="form-ui" class="flex items-center justify-center left-0 md:justify-start md:left-48">
-      <form id="form" method="post" action="">
+      <form id="form" method="post" action="controller/userController.php">
         <div id="close-form"></div>
         <div id="form-body">
           <div id="welcome-lines">
@@ -21,20 +21,20 @@
           </div>
           <div id="input-area">
             <div class="f-inp">
-              <input type="text" placeholder="Full Name" />
+              <input type="text" placeholder="Full Name" name="fullname" />
             </div>
             <div class="f-inp">
-              <input type="text" placeholder="Email Address" />
+              <input type="email" placeholder="Email Address" name="email" />
             </div>
             <div class="f-inp">
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Password" name="password" />
             </div>
             <div class="f-inp">
-              <input type="password" placeholder="Repeat your password" />
+              <input type="password" placeholder="Repeat your password" name="r_password" />
             </div>
           </div>
           <div id="submit-button-cvr">
-            <button type="submit" id="submit-button">SIGN UP</button>
+            <button type="submit" id="submit-button" name="signup">SIGN UP</button>
           </div>
           <div id="forgot-pass">Already you have account? <a href="login.php">Login now!</a></div>
           <div id="bar"></div>
