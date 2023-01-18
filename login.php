@@ -12,7 +12,7 @@
 <body class="backgroundd">
   <div id="coverr" class="min-h-screen flex items-center justify-center mx-auto">
     <div id="form-ui" class="flex items-center justify-center right-0 md:justify-start md:right-48">
-      <form id="form" method="post" action="">
+      <form id="form" method="post" action="controller/userController.php">
         <div id="close-form"></div>
         <div id="form-body">
           <div id="welcome-lines">
@@ -22,14 +22,14 @@
           </div>
           <div id="input-area">
             <div class="f-inp">
-              <input type="text" placeholder="Email Address" />
+              <input type="text" placeholder="Email Address" name="email" />
             </div>
             <div class="f-inp">
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Password" name="password" />
             </div>
           </div>
           <div id="submit-button-cvr">
-            <button type="submit" id="submit-button">LOGIN</button>
+            <button type="submit" id="submit-button" name="login">LOGIN</button>
           </div>
           <div id="forgot-pass">You dont have account yet? <a href="signup.php">Sign up now!</a></div>
           <div id="bar"></div>
@@ -40,6 +40,9 @@
       </div>
     </div>
   </div>
+  <?php session_start();
+  require_once 'include/alert.php';
+  ?>
 </body>
 
 </html>

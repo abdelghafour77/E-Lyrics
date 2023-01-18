@@ -6,7 +6,6 @@ class User extends Connection
   public $id;
   public $fullName;
   public $email;
-  public $phone;
   public $admin;
   public $password;
 
@@ -30,6 +29,8 @@ class User extends Connection
   {
     $this->admin = $admin;
   }
+
+
 
   public function registration()
   {
@@ -67,11 +68,10 @@ class User extends Connection
       $res = password_verify($this->password, $result["password"]);
       if ($res) {
         $_SESSION['id'] = $result['id'];
-        $_SESSION['first_name'] = $result['first_name'];
-        $_SESSION['last_name'] = $result['last_name'];
+        $_SESSION['full_name'] = $result['full_name'];
         $_SESSION['email'] = $result['email'];
-        $_SESSION['phone'] = $result['phone'];
         $_SESSION['admin'] = $result['admin'];
+        die;
         header('location:../index.php');
       } else {
         $_SESSION['type_message'] = "error";
@@ -81,6 +81,24 @@ class User extends Connection
     }
     die;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   public function updateUser()
   {
 
@@ -97,11 +115,11 @@ class User extends Connection
     if (isset($_POST['admin'])) {
       $upd = "UPDATE `users` SET `first_name`= ? ,`last_name`= ? ,`age`= ? ,`email`= ? ,`phone`= ? ,`password`= ? ,`admin`=? , `updated_at`=? ,`updated_by`=? WHERE `id` = ?";
       $stmt = $this->connect()->prepare($upd);
-      $stmt->execute([$this->admin, $this->email, $this->phone, $this->password, $time, $id, $this->id]);
+      $stmt->execute([$this->admin, $this->email, $this->password, $time, $id, $this->id]);
     } else {
       $upd = "UPDATE `users` SET `first_name`= ? ,`last_name`= ? ,`age`= ? ,`email`= ? ,`phone`= ? ,`password`= ? ,`updated_at`=? ,`updated_by`=? WHERE `id` = ?";
       $stmt = $this->connect()->prepare($upd);
-      $stmt->execute([$this->admin, $this->email, $this->phone, $this->password, $time, $id, $this->id]);
+      $stmt->execute([$this->admin, $this->email, $this->password, $time, $id, $this->id]);
     }
     if ($stmt) {
       $_SESSION['type_message'] = "success";
