@@ -40,7 +40,7 @@
       </div>
     </div>
   </div>
-  <?php session_start();
+  <?php
   require_once 'include/alert.php';
   ?>
 </body>

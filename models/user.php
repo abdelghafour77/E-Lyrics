@@ -71,8 +71,8 @@ class User extends Connection
         $_SESSION['full_name'] = $result['full_name'];
         $_SESSION['email'] = $result['email'];
         $_SESSION['admin'] = $result['admin'];
+        header('location:../dashboard.php');
         die;
-        header('location:../index.php');
       } else {
         $_SESSION['type_message'] = "error";
         $_SESSION['message'] = 'Password incorrect';
