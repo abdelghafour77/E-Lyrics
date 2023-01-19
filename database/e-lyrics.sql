@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 18, 2023 at 04:11 PM
+-- Generation Time: Jan 19, 2023 at 04:28 PM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.26
 
@@ -74,7 +74,20 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `description` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `image` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `description`, `image`) VALUES
+(1, 'pop', 'La musique pop est un genre musical apparu dans les années 1960 au Royaume-Uni et aux États-Unis. Les chansons pop parlent en général de l\'amour ou des relations amoureuses.', 'pop.jpg'),
+(2, 'lit', '', 'lit.jpg'),
+(3, 'Psychedelic Rock', '', 'psychedelic-rock.jpg'),
+(4, 'Soft Songs', '', 'soft-songs.jpg'),
+(5, 'Trap', '', 'trap.jpg'),
+(6, 'Brand new chill', '', 'brand-new-chill.jpg'),
+(7, 'Soft pop hits', '', 'soft-pop-hits.jpg');
 
 -- --------------------------------------------------------
 
@@ -114,17 +127,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `admin`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(2, 'Nick', 'Doe', '$2y$10$j8OJApvra4z9L41QZNi0g.fOrxgY16HcSJ8IrsL.8j1wXC/xvSzKK', 0, '2023-01-18 10:48:15', '2023-01-18 10:48:15', NULL),
-(3, 'Meredith Spencer', 'vumedet@mailinator.com', '$2y$10$YK4uHJ7jU2/TwbUq0cKU2OVvkRDtpidkmGRaLrLHyGyK8.tCBXq6y', 0, '2023-01-18 10:49:15', '2023-01-18 10:49:15', NULL),
-(4, 'Rama Castaneda', 'syla@mailinator.com', '$2y$10$yGo1SMv3gsGjo9rPvyj0/ur3isocgHQRa2f7FYPJDdHd1cONXxDhe', 0, '2023-01-18 10:56:15', '2023-01-18 10:56:15', NULL),
-(5, 'Hiroko Bernard', 'xegexije@mailinator.com', '$2y$10$mAdz.8mw9AAtEGho6R1qsuxg0EVcGur.rfiwzi8jFFo2rZInxCDty', 0, '2023-01-18 10:57:19', '2023-01-18 10:57:19', NULL);
+(6, 'Shelby Romero', 'zusoxely@mailinator.com', '$2y$10$nbPm3rVbspmAloPOM6Jz0ebtZPbygIhnxobEncT4zVS6PXYCgyMni', 0, '2023-01-19 10:11:24', '2023-01-19 10:11:24', NULL),
+(7, 'Yuri Owen', 'nachit@mailinator.com', '$2y$10$E8nCJuijTsbrL8C9sy28p.c56gMbUf7dx0co5wXaSARyhk3rY7Cg6', 0, '2023-01-19 13:09:46', '2023-01-19 13:09:46', NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
