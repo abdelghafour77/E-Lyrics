@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php
+require_once 'include/session.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +19,7 @@
 </head>
 
 <body class="font-Poppins">
-  <div class="flex h-screen overflow-y-hidden bg-white">
+  <div class="flex h-screen bg-white">
     <!-- Sidebar -->
     <aside class="inset-y-0 z-10 flex flex-col flex-shrink-0 w-fit max-h-screen overflow-hidden transition-all transform bg-white border-r shadow-lg lg:z-auto lg:static lg:shadow-none">
       <!-- sidebar header -->
@@ -118,7 +120,7 @@
         </div>
       </header>
       <!-- Main content -->
-      <main class="flex-1 max-h-full p-5 overflow-hidden overflow-y-scroll">
+      <main class="flex-1 max-h-full p-5 overflow-y-scroll">
         <!-- Main content header -->
         <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row">
           <h1 class="text-2xl font-semibold whitespace-nowrap">Manage Songs</h1>
@@ -190,89 +192,69 @@
     </div>
   </div>
   <!-- Modal -->
-  <div id="modal" class="z-20 snap-x h-screen w-full hidden fixed left-0 top-0 justify-center items-center bg-black bg-opacity-50">
-    <div class="z-30 bg-white max-h-screen rounded shadow-lg md:w-3/4 md:mx-0 w-full mx-2">
-      <form id="form" action="scripts.php" method="POST" enctype="multipart/form-data">
-        <input type="hidden" id="id_product" name="id_product" />
-        <input type="hidden" id="type" name="" />
-        <div class="flex justify-between border-b px-4 py-2">
-          <h3>Add Product</h3>
-          <button type="button" onclick="closeModal()">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+
+  <div id="modal" class="z-20 h-screen w-full hidden fixed left-0 top-0 justify-center items-center bg-black bg-opacity-50">
+    <div tabindex="0" class="showHide bg-white rounded shadow-lg md:w-3/4 md:mx-0 w-full mx-2 overflow-y-scroll">
+      <form id="form_model" action="scripts.php" method="POST" enctype="multipart/form-data">
+        <input type="hidden" id="id_brand" name="id_brand">
+        <input type="hidden" id="type" name="">
+        <div class="border-b px-4 py-2">
+          <h3>Add Brand</h3>
         </div>
         <div class="p-2">
           <div class="flex justify-center">
             <!-- xl:w-96 -->
             <div class="mb-1">
-              <div id="picture" class="hidden picture rounded-sm h-16 justify-center"></div>
+              <div class="picture rounded-sm w-16 mx-auto">
+
+              </div>
               <div class="mb-2">
-                <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">Model</label>
-                <input type="text" id="model" name="model" placeholder="Model" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
+                <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">Name</label>
+                <input type="text" id="name" name="name" placeholder="Name" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
               </div>
-              <div class="mb-2 flex">
-                <div class="mr-2 w-1/2">
-                  <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">Brand</label>
-                  <select name="brand" id="brand" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
-                    <option value="" disabled selected>Select Brand</option>
-
-                    <option value="<?= $brand['id'] ?>">
-                      <?= $brand['name'] ?>
-                    </option>
-                  </select>
-                </div>
-                <div class="ml-2 w-1/2">
-                  <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">Category</label>
-                  <select name="category" id="category" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
-                    <option value="" disabled selected>Select Category</option>
-
-                    <option value="<?= $category['id'] ?>">
-                      <?= $category['name'] ?>
-                    </option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="mb-2 flex">
-                <div class="mr-2 w-1/2">
-                  <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">Quantity</label>
-                  <input type="number" id="quantity" name="quantity" placeholder="Quantity" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
-                </div>
-                <div class="ml-2 w-1/2">
-                  <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">Price</label>
-                  <input type="number" id="price" name="price" placeholder="Price" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
-                </div>
-              </div>
-
               <div class="mb-2">
                 <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">Description</label>
-                <textarea name="description" id="description" cols="30" rows="3" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"> </textarea>
+                <textarea name="description" id="description" cols="30" rows="3" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"></textarea>
               </div>
               <div class="mb-1">
                 <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">Picture</label>
-                <input id="picture" name="picture" type="file" class="form-control cursor-pointer block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-describedby="file_input_help" />
-                <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX.
-                  800x400px).</p>
+                <input name="picture" type="file" class="form-control cursor-pointer block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-describedby="file_input_help" />
+                <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
               </div>
             </div>
           </div>
         </div>
         <div class="flex justify-end items-center w-100 border-t p-2">
           <button type="button" id="cancel" onclick="closeModal()" class="bg-gray-600 hover:bg-gray-700 px-3 py-1 rounded text-white mr-1">cancel</button>
-          <button type="submit" id="add" onclick="setType('add')" class="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-white mr-1">save</button>
-          <button type="submit" id="update" onclick="setType('update')" class="bg-orange-500 hover:bg-orange-600 px-3 py-1 rounded text-white mr-1">update</button>
-          <button type="submit" id="delete" onclick="confirms();setType('delete')" class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-white mr-1">delete</button>
+          <button type="submit" id="add" onclick="setType('add_brand')" class="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-white mr-1">save</button>
+          <button type="submit" id="update" onclick="setType('update_brand')" class="bg-orange-500 hover:bg-orange-600 px-3 py-1 rounded text-white mr-1">update</button>
+          <button type="submit" id="delete" onclick="confirms();setType('delete_brand')" class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-white mr-1">delete</button>
         </div>
       </form>
     </div>
   </div>
   <!-- Modal -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="assets/js/jquery-3.6.3.min.js"></script>
   <script src="assets/js/sweetalert.js"></script>
   <script src="assets/js/main.js"></script>
+  <script>
+    const modalBlock = $(".showHide");
+    modalBlock.addEventListener('blur', (e) => {
+      $("#modal").removeClass("flex").addClass("hidden");
+    })
+
+    function openModal() {
+      document.getElementById("type").setAttribute("name", 'add');
+      $("#update").removeClass("bloc").addClass("hidden");
+      $("#delete").removeClass("bloc").addClass("hidden");
+      $("#add").removeClass("hidden").addClass("bloc");
+
+      $("#modal").removeClass("hidden").addClass("flex");
+      $("#picture").removeClass("flex").addClass("hidden");
+
+    }
+  </script>
 </body>
 
 </html>
