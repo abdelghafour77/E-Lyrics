@@ -29,7 +29,7 @@
             </div>
           </div>
           <div id="submit-button-cvr">
-            <button type="submit" id="submit-button" name="login">LOGIN</button>
+            <button class="bg-teal" type="submit" id="submit-button" name="login">LOGIN</button>
           </div>
           <div id="forgot-pass">You dont have account yet? <a href="signup.php">Sign up now!</a></div>
           <div id="bar"></div>

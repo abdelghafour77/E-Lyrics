@@ -34,7 +34,7 @@
             </div>
           </div>
           <div id="submit-button-cvr">
-            <button type="submit" id="submit-button" name="signup">SIGN UP</button>
+            <button class="bg-teal" type="submit" id="submit-button" name="signup">SIGN UP</button>
           </div>
           <div id="forgot-pass">Already you have account? <a href="login.php">Login now!</a></div>
           <div id="bar"></div>
