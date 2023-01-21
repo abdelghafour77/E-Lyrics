@@ -195,34 +195,6 @@ body {
       border-radius: 20px;
 }
 
-#close-form {
-      position: absolute;
-      top: 23px;
-      right: 25px;
-      width: 24px;
-      height: 24px;
-      cursor: pointer;
-}
-
-#close-form:before,
-#close-form:after {
-      content: "";
-      position: absolute;
-      top: -2px;
-      left: 10px;
-      width: 5px;
-      height: 28px;
-      background-color: rgba(0, 0, 0, 0.06);
-      border-radius: 10px;
-}
-
-#close-form:before {
-      transform: rotateZ(-45deg);
-}
-
-#close-form:after {
-      transform: rotateZ(45deg);
-}
 
 #form-body {
       position: absolute;
@@ -340,37 +312,6 @@ body {
       right: -38px;
 }
 
-#img-box {
-      position: absolute;
-      top: 50%;
-      left: 312px;
-      width: 394px;
-      height: 475px;
-      margin-top: -237.5px;
-      padding-right: 16px;
-      background-color: #fff;
-      border-radius: 0 20px 20px 0;
-      overflow: hidden;
-}
-
-#img-box.left-card {
-      left: auto !important;
-      right: 312px !important;
-      border-radius: 20px 0 0 20px !important;
-}
-
-#img-box {
-      background-image: url(../img/A4.png);
-
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-
-}
-
-#img-box img {
-      display: block;
-}
 
 /* aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
 #footer-img {

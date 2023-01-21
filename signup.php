@@ -11,7 +11,7 @@
 
 <body class="backgroundd">
   <div id="coverr" class="min-h-screen flex items-center justify-center mx-auto">
-    <div id="form-ui" class="flex items-center justify-center left-0 md:justify-start md:left-48">
+    <div id="form-ui" class="flex items-center justify-center md:justify-start ">
       <form id="form" method="post" action="controller/userController.php">
         <div id="close-form"></div>
         <div id="form-body">
@@ -40,9 +40,6 @@
           <div id="bar"></div>
         </div>
       </form>
-      <div id="img-box" class="left-card hidden md:flex">
-        <div id="coverr"></div>
-      </div>
     </div>
   </div>
 </body>

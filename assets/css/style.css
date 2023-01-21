@@ -559,10 +559,6 @@ video {
   border-width: 0;
 }
 
-.collapse {
-  visibility: collapse;
-}
-
 .fixed {
   position: fixed;
 }
@@ -617,10 +613,6 @@ video {
 
 .z-20 {
   z-index: 20;
-}
-
-.z-30 {
-  z-index: 30;
 }
 
 .z-50 {
@@ -684,14 +676,6 @@ video {
 
 .mb-2 {
   margin-bottom: 0.5rem;
-}
-
-.mr-2 {
-  margin-right: 0.5rem;
-}
-
-.ml-2 {
-  margin-left: 0.5rem;
 }
 
 .mt-1 {
@@ -758,10 +742,6 @@ video {
   display: table;
 }
 
-.grid {
-  display: grid;
-}
-
 .hidden {
   display: none;
 }
@@ -784,10 +764,6 @@ video {
 
 .h-12 {
   height: 3rem;
-}
-
-.h-16 {
-  height: 4rem;
 }
 
 .h-10 {
@@ -833,10 +809,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-1\/2 {
-  width: 50%;
 }
 
 .w-16 {
@@ -913,10 +885,6 @@ video {
 
 .cursor-pointer {
   cursor: pointer;
-}
-
-.snap-x {
-  scroll-snap-type: x var(--tw-scroll-snap-strictness);
 }
 
 .flex-col {
@@ -1008,10 +976,6 @@ video {
 
 .overflow-y-auto {
   overflow-y: auto;
-}
-
-.overflow-y-hidden {
-  overflow-y: hidden;
 }
 
 .overflow-x-scroll {
@@ -1434,10 +1398,6 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.outline {
-  outline-style: solid;
-}
-
 .blur {
   --tw-blur: blur(8px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -1663,35 +1623,6 @@ body {
   border-radius: 20px;
 }
 
-#close-form {
-  position: absolute;
-  top: 23px;
-  right: 25px;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-}
-
-#close-form:before,
-#close-form:after {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: 10px;
-  width: 5px;
-  height: 28px;
-  background-color: rgba(0, 0, 0, 0.06);
-  border-radius: 10px;
-}
-
-#close-form:before {
-  transform: rotateZ(-45deg);
-}
-
-#close-form:after {
-  transform: rotateZ(45deg);
-}
-
 #form-body {
   position: absolute;
   top: 45%;
@@ -1810,36 +1741,6 @@ body {
 
 #bar:after {
   right: -38px;
-}
-
-#img-box {
-  position: absolute;
-  top: 50%;
-  left: 312px;
-  width: 394px;
-  height: 475px;
-  margin-top: -237.5px;
-  padding-right: 16px;
-  background-color: #fff;
-  border-radius: 0 20px 20px 0;
-  overflow: hidden;
-}
-
-#img-box.left-card {
-  left: auto !important;
-  right: 312px !important;
-  border-radius: 20px 0 0 20px !important;
-}
-
-#img-box {
-  background-image: url(../img/A4.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#img-box img {
-  display: block;
 }
 
 /* aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
