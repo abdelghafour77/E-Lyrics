@@ -162,7 +162,8 @@ body {
 
 .backgroundd {
       margin: 8px;
-      background-color: #2d6bad;
+      /* background-color: #2d6bad; */
+      background-image: url(../img/wave-line.svg);
 }
 
 
@@ -191,7 +192,7 @@ body {
       height: 472px;
       padding: 25px;
       background-color: #fff;
-      box-shadow: 0px 15px 60px #0e2a47;
+      box-shadow: 0px 15px 60px #12171e;
       border-radius: 20px;
 }
 
@@ -262,7 +263,7 @@ body {
       margin: 0;
       padding: 14px 13px 12px 13px;
       border: 0;
-      background-color: #f5506e;
+      /* background-color: #f5506e; */
       border-radius: 25px;
       line-height: 1;
       cursor: pointer;
@@ -323,3 +324,12 @@ body {
       background-size: cover;
       position: relative;
 }
+
+/* 
+#inputss {
+      border-bottom: 1px black solid;
+}
+
+#inputss:last-child {
+      border-bottom: none;
+} */
