@@ -9,29 +9,6 @@ class User extends Connection
   public $admin;
   public $password;
 
-  function setId($id)
-  {
-    $this->id = $id;
-  }
-  function setFullName($fullName)
-  {
-    $this->fullName = $fullName;
-  }
-  function setEmail($email)
-  {
-    $this->email = $email;
-  }
-  function setPassword($password)
-  {
-    $this->password = $password;
-  }
-  function setAdmin($admin)
-  {
-    $this->admin = $admin;
-  }
-
-
-
   public function registration()
   {
     $sql = "SELECT * FROM users WHERE email = ?";
@@ -52,7 +29,6 @@ class User extends Connection
       header('location:../signup.php');
     }
   }
-
 
   public function login()
   {

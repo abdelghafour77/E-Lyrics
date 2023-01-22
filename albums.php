@@ -15,7 +15,7 @@ require_once 'include/session.php';
   <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet" />
   <!-- Style CSS -->
   <link rel="stylesheet" href="assets/css/style.css" />
-  <title>Dashboard lyrics - E-LYRICS</title>
+  <title>Albums - E-LYRICS</title>
 </head>
 
 <body class="font-Poppins">
@@ -23,7 +23,7 @@ require_once 'include/session.php';
     <!-- Sidebar -->
     <?php
     require_once 'include/side-dash.php';
-    sidebar('dashboard');
+    sidebar('albums');
     ?>
     <div class="flex flex-col flex-1 h-full overflow-hidden">
       <!-- Navbar -->
@@ -31,12 +31,65 @@ require_once 'include/session.php';
       <!-- Main content -->
       <main class="flex-1 max-h-full p-5 ">
         <!-- Main content header -->
+        <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row">
+          <h1 class="text-2xl font-semibold whitespace-nowrap">Manage Albums</h1>
+        </div>
 
+        <!-- Table see (https://tailwindui.com/components/application-ui/lists/tables) -->
+        <div class="flex mt-6 items-center justify-between">
+          <h3 class="text-xl">All Albums (1)</h3>
+          <button onclick="openModal()" type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Add Albums</button>
+        </div>
 
-        <!-- Statistics -->
-        <?php require_once 'views/statisticsView.php'; ?>
+        <div class="flex flex-col mt-6">
+          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+              <div class="overflow-hidden border-b border-gray-200 rounded-md shadow-md">
+                <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Songs</th>
+                      <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Lyrics
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Views
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Created
+                        at</th>
+                    </tr>
+                  </thead>
 
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr class="transition-all hover:bg-gray-100 hover:shadow-lg" onclick="getProduct()" id="">
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="flex-shrink-0 w-12 h-12">
+                            <img class="mx-auto picture h-12 rounded-md" product="" src="assets/img/covers/cover.jpg" alt="" />
+                          </div>
+                          <div class="ml-4">
+                            <div class="model text-sm font-medium text-gray-900" product="">Song
+                              name</div>
+                            <div class="category text-sm text-gray-500" product="">
+                              artist - [album]</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="brand px-6 py-4 whitespace-nowrap" product="">
+                        <p class="description text-sm truncate max-w-sm text-gray-900" product="">Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Suscipit repellat maiores quod at culpa, repudiandae quisquam non aspernatur voluptate
+                          illo exercitationem minus quae debitis illum voluptatibus quos sed reiciendis minima!</p>
+                      </td>
 
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="quantity inline-flex px-2 text-xs font-semibold leading-5  text-green-800 bg-green-100 rounded-full" product=""> 5.9K </span>
+                      </td>
+                      <td class="price px-6 py-4 text-sm text-gray-500 whitespace-nowrap" product="">12-12-2022 13:45</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
       <!-- Main footer -->
       <footer class="py-1 bg-transparentBlack">

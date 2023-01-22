@@ -1,5 +1,5 @@
 <?php
-// include 'include/role.php';
+require_once 'include/session.php';
 // $users = getAllUsers();
 // $countUsers = countUsers();
 ?>
@@ -29,7 +29,7 @@
     ?>
     <div class="flex flex-col flex-1 h-full overflow-hidden">
       <!-- Navbar -->
-      <?php include 'include/header-dashboard.php'; ?>
+      <?php include 'include/nav-dash.php'; ?>
       <!-- Main content -->
       <main class="flex-1 max-h-full p-5 overflow-hidden overflow-y-scroll">
         <!-- Main content header -->
