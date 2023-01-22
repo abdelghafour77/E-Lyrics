@@ -1,3 +1,4 @@
+<?php include_once 'include/session.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,6 +47,10 @@
       </div>
     </div>
   </div>
+
+  <script src="assets/js/jquery-3.6.3.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <?php require_once 'include/alert.php'; ?>
 </body>
 
 </html>
