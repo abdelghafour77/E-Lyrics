@@ -2,8 +2,6 @@
 require_once 'models/categories.php';
 $categories = new Category();
 $categories = $categories->allCategories();
-// var_dump($categories);
-// die;
 ?>
 <section id="categories" class="container pb-9 mx-auto p-6">
       <h3 class="text-xl text-center font-bold p-4">Categories</h3>
@@ -24,8 +22,5 @@ $categories = $categories->allCategories();
                         </div>
                   </a>
             <?php } ?>
-
-
-
       </div>
 </section>
