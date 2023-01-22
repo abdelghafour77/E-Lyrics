@@ -15,13 +15,16 @@ require_once 'include/session.php';
   <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet" />
   <!-- Style CSS -->
   <link rel="stylesheet" href="assets/css/style.css" />
-  <title>Dashboard lyrics - E-LYRICS</title>
+  <title>Songs - E-LYRICS</title>
 </head>
 
 <body class="font-Poppins">
   <div class="flex h-screen bg-white">
     <!-- Sidebar -->
-    <?php require_once 'include/side-dash.php'; ?>
+    <?php
+    require_once 'include/side-dash.php';
+    sidebar('songs');
+    ?>
     <div class="flex flex-col flex-1 h-full overflow-hidden">
       <!-- Navbar -->
       <?php require_once 'include/nav-dash.php'; ?>
