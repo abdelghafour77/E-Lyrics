@@ -205,7 +205,7 @@ require_once 'include/session.php';
       var jsonData = JSON.stringify(data);
       console.log(data);
       $.ajax({
-        url: "scripts.php",
+        url: "controller/songController.php",
         type: "POST",
         data: jsonData,
         contentType: "application/json",
