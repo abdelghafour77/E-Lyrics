@@ -161,9 +161,11 @@ body {
 }
 
 .backgroundd {
-      margin: 8px;
+      /* margin: 8px; */
       /* background-color: #2d6bad; */
       background-image: url(../img/wave-line.svg);
+      background-size: cover;
+      height: 100vh;
 }
 
 
