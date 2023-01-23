@@ -1,5 +1,5 @@
 <?php
-require_once 'models/statistc.php';
+require_once 'models/statistic.php';
 $statistic = new Statistic();
 ?>
 <section class="text-gray-600 body-font">

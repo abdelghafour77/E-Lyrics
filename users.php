@@ -1,6 +1,9 @@
 <?php
 require_once 'include/session.php';
-// $users = getAllUsers();
+require_once 'models/statistic.php';
+$statistic = new Statistic();
+$statistic->table = "users";
+
 // $countUsers = countUsers();
 ?>
 <!DOCTYPE html>
@@ -38,57 +41,10 @@ require_once 'include/session.php';
         </div>
 
         <!-- Table see (https://tailwindui.com/components/application-ui/lists/tables) -->
-        <h3 class="mt-6 text-xl">All Users (<?= $countUsers ?>)</h3>
-        <div class="flex flex-col mt-6">
-          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-              <div class="overflow-hidden border-b border-gray-200 rounded-md shadow-md">
-                <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
-                  <thead class="bg-gray-50">
-                    <tr>
-                      <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Name</th>
-                      <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Phone</th>
-                      <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Role</th>
-                      <th scope="col" class="relative px-6 py-3">
-                        <span class="sr-only">Edit</span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody class="bg-white divide-y divide-gray-200">
-                    <?php
-                    foreach ($users as $user) {
-
-                    ?>
-                      <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                        <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="flex items-center">
-                            <div class="flex-shrink-0 w-10 h-10">
-                              <img class="w-10 h-10 rounded-full" src="assets/img/users/<?= ($user['picture']) ?  $user['picture'] :  'avatar.png' ?>" alt="<?= $user['first_name'] . '_' . $user['last_name'] ?>" />
-                            </div>
-                            <div class="ml-4">
-                              <div class="text-sm font-medium text-gray-900"><?= $user['first_name'] . ' ' . $user['last_name'] ?></div>
-                              <div class="text-sm text-gray-500"><?= $user['email'] ?></div>
-                            </div>
-                          </div>
-                        </td>
-
-                        <td class="px-6 py-4 whitespace-nowrap">
-                          <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full"> <?= ($user['phone']) ?  $user['phone'] :  'Null' ?> </span>
-                        </td>
-                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap"><?= $user['role'] ?></td>
-                        <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                          <a href="edit.php?id_user=<?= $user['id'] ?>" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                        </td>
-                      </tr>
-                    <?php
-                    }
-                    ?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
+        <h3 class="mt-6 text-xl">All Users (<?= $statistic->countt() ?>)</h3>
+        <?php
+        include 'views/tab-users.php';
+        ?>
       </main>
       <!-- Main footer -->
       <footer class="py-1 bg-transparentBlack">

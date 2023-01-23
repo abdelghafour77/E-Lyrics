@@ -1,5 +1,5 @@
 <?php
-require_once 'models/categories.php';
+require_once 'models/category.php';
 $categories = new Category();
 $categories = $categories->allCategories();
 ?>
