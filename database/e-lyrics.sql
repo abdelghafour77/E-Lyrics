@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 19, 2023 at 04:28 PM
+-- Generation Time: Jan 23, 2023 at 04:27 PM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.26
 
@@ -40,7 +40,17 @@ CREATE TABLE IF NOT EXISTS `albums` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `albums`
+--
+
+INSERT INTO `albums` (`id`, `name`, `description`, `image`, `artist_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Futur nostalgia', 'aaaa', 'Future_Nostalgia.png', 1, '2023-01-23 14:36:02', '2023-01-23 14:36:02', '2023-01-23 14:36:02'),
+(2, 'Dua lipa', 'dua_lipa', 'dua_lipa.jpg', 1, '2023-01-23 14:37:23', '2023-01-23 14:37:23', '2023-01-23 14:37:23'),
+(3, 'Starboy', 'aaaaa', 'Starboy.png', 2, '2023-01-23 16:02:43', '2023-01-23 16:02:43', '2023-01-23 16:02:43'),
+(4, 'After hours', 'lsjdfj', 'after_hours.jfif', 2, '2023-01-23 16:02:43', '2023-01-23 16:02:43', '2023-01-23 16:02:43');
 
 -- --------------------------------------------------------
 
@@ -59,7 +69,15 @@ CREATE TABLE IF NOT EXISTS `artists` (
   `created_by` int NOT NULL,
   `updated_by` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `artists`
+--
+
+INSERT INTO `artists` (`id`, `name`, `picture`, `biography`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(1, 'dua lipa', 'dua.jfif', 'lorem ipsu ', '2023-01-23 11:02:37', '2023-01-23 11:02:37', 1, 1),
+(2, 'the weeknd', 'the_weeknd.webp', 'the weekndthe weekndthe weekndthe weekndthe weeknd', '2023-01-23 14:38:08', '2023-01-23 14:38:08', 1, 1);
 
 -- --------------------------------------------------------
 
