@@ -76,13 +76,29 @@ $statistic->table = "songs";
                   <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">Name</label>
                   <input type="text" name="name" placeholder="Name" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
                 </div>
-                <div class="mb-2">
-                  <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">Category</label>
+                <div class="mb-2 flex">
+                  <div class="mr-2 w-1/3">
+                    <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">Category</label>
+                    <select name="category" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                      <option value="1">pop</option>
+                      <option value="2">rap</option>
+                    </select>
+                  </div>
+                  <div class="mr-2 w-1/3">
+                    <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">Artist</label>
+                    <select name="category" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                      <option value="1">pop</option>
+                      <option value="2">rap</option>
+                    </select>
+                  </div>
+                  <div class="mr-2 w-1/3">
+                    <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">album</label>
+                    <select name="category" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                      <option value="1">pop</option>
+                      <option value="2">rap</option>
+                    </select>
+                  </div>
 
-                  <select name="category" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
-                    <option value="1">pop</option>
-                    <option value="2">rap</option>
-                  </select>
                 </div>
 
                 <div class="mb-2">
