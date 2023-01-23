@@ -55,11 +55,13 @@ function senddata() {
 
 }
 
+$(document).on('click', (e) => {
+  if ($(e.target).hasClass('bg-black')) {
+    closeModal()
+  }
+});
 
 
-// modalBlock.blur(function() {
-//   closeModal()
-// })
 
 function openModal() {
   document.getElementById("type").setAttribute("name", 'add');
