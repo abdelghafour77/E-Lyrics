@@ -7,7 +7,7 @@ let inputs
 
 function addMore() {
   parent = document.getElementById("inputsParent");
-  inputss = document.getElementById("inputss");
+  inputss = document.getElementsByClassName("inputss")[0];
   clone = inputss.cloneNode(true);
   inputs = clone.getElementsByTagName("input");
   for (var i = 0; i < inputs.length; i++) {
@@ -22,6 +22,12 @@ function addMore() {
   clone.getElementsByClassName("index")[0].innerHTML = index;
 
   parent.appendChild(clone);
+  let counter = 0
+  document.querySelectorAll('.inputss').forEach((input) => {
+    input.id = `inputss_${counter}`
+    input.querySelector('.artist').id
+    counter++
+  })
 }
 
 function senddata() {
@@ -78,5 +84,4 @@ function openModal() {
 function closeModal() {
   $("#modal").removeClass("flex").addClass("hidden");
 }
-
 

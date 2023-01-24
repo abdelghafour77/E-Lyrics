@@ -87,7 +87,7 @@ $statistic->table = "songs";
                   </div>
                   <div class="mr-2 w-1/3">
                     <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">album</label>
-                    <select name="album" id="album" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                    <select name="album" id="album" class="album form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
                       <option value="" selected>Select Album</option>
 
                     </select>
@@ -129,22 +129,22 @@ $statistic->table = "songs";
   <script src="assets/js/main.js"></script>
   <script src="assets/js/admin-main.js"></script>
   <script>
-    $(document).ready(function() {
-      $('#artist').on('change', function() {
-        var id_artist = $(this).val();
-        if (id_artist) {
-          $.post(
-            "views/sel-albums.php", {
-              id_artist: id_artist
-            },
-            function(data) {
-              $('#album').html(data);
-            }
-          );
-        }
-      });
+    function change(id, e) {
+      console.log();
+      var id_artist = id;
+      if (id_artist) {
+        $.post(
+          "views/sel-albums.php", {
+            id_artist: id_artist
+          },
+          function(data) {
+            let t = e.target.parentElement.parentElement.querySelector('.album')
+            t.innerHTML = data;
+          }
+        );
+      }
 
-    });
+    }
   </script>
 </body>
 
