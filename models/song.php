@@ -1,11 +1,11 @@
 <?php
 require_once 'connection.php';
 
-class Album extends Connection
+class Song extends Connection
 {
-      public $id;
+      private $id;
 
-      public function allArtists()
+      public function allSongs()
       {
             $sql = "SELECT * FROM artists";
             $stmt = $this->connect()->prepare($sql);
@@ -13,12 +13,12 @@ class Album extends Connection
             $result = $stmt->fetchAll();
             return $result;
       }
-      public function getAlbums()
+      public function getSong()
       {
-            $sql = "SELECT * FROM albums where artist_id = ?";
+            $sql = "SELECT * FROM users where id = ?";
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute([$this->id]);
-            $result = $stmt->fetchAll();
+            $result = $stmt->fetch();
             return $result;
       }
 }
