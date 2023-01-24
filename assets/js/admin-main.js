@@ -31,12 +31,14 @@ function senddata() {
     var description = $(this).find("textarea[name='description']").val();
     var lyrics = $(this).find("textarea[name='lyrics']").val();
     var category = $(this).find("select[name='category']").val();
+    var album = $(this).find("select[name='album']").val();
     var picture = $(this).find("input[name='picture']")[0].files[0];
     var obj = {
       name: name,
       description: description,
       lyrics: lyrics,
       category: category,
+      album: album,
       picture: picture
     };
     data.push(obj);
@@ -76,3 +78,6 @@ function openModal() {
 function closeModal() {
   $("#modal").removeClass("flex").addClass("hidden");
 }
+
+
+
