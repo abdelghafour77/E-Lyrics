@@ -49,17 +49,26 @@ function senddata() {
     };
     data.push(obj);
   });
-  var jsonData = JSON.stringify(data);
-  console.log(data);
+
+  var formData = new FormData();
+  formData.append("data", JSON.stringify(data));
+
+  for (var i = 0; i < data.length; i++) {
+    var picture = data[i].picture;
+    formData.append("picture[]", picture);
+  }
+
   $.ajax({
     url: "controller/songController.php",
     type: "POST",
-    data: jsonData,
-    contentType: "application/json",
+    data: formData,
+    contentType: false,
+    processData: false,
     success: function (response) {
       console.log(response);
     }
   });
+
 
 }
 
