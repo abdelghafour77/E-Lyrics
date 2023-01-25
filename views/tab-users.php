@@ -11,7 +11,7 @@ $users = (new User)->allUsers();
                                     <tr>
                                           <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Picture</th>
                                           <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Name</th>
-                                          <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Biography</th>
+                                          <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Email</th>
                                           <!-- <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">price</th> -->
                                     </tr>
                               </thead>
@@ -22,9 +22,10 @@ $users = (new User)->allUsers();
                                           <tr class="transition-all hover:bg-gray-100 hover:shadow-lg" onclick="getuser(<?= $user['id'] ?>)" id="<?= $user['id'] ?>">
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                       <div class="flex items-center">
-                                                            <div class="flex-shrink-0 md:w-16 w-6">
-                                                                  <img class="picture" src="assets/img/users/user.png" alt="" />
+                                                            <div class="flex-shrink-0 w-12 h-12">
+                                                                  <img class="mx-auto picture h-12 rounded-md" product="" src="assets/img/users/user.png" alt="" />
                                                             </div>
+
 
                                                       </div>
                                                 </td>

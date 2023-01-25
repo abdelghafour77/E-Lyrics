@@ -9,6 +9,11 @@ class User extends Connection
   public $admin;
   public $password;
 
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
   public function registration()
   {
     $sql = "SELECT * FROM users WHERE email = ?";

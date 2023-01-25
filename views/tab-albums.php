@@ -1,6 +1,6 @@
 <?php
-require_once 'models/artist.php';
-$artists = (new Artist)->allArtists();
+require_once 'models/album.php';
+$albums = (new Album)->allAlbums();
 ?>
 
 <div class="flex flex-col mt-6">
@@ -21,31 +21,36 @@ $artists = (new Artist)->allArtists();
                               </thead>
 
                               <tbody class="bg-white divide-y divide-gray-200">
-                                    <tr class="transition-all hover:bg-gray-100 hover:shadow-lg" onclick="getProduct()" id="">
-                                          <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="flex items-center">
-                                                      <div class="flex-shrink-0 w-12 h-12">
-                                                            <img class="mx-auto picture h-12 rounded-md" product="" src="assets/img/covers/cover.jpg" alt="" />
-                                                      </div>
-                                                      <div class="ml-4">
-                                                            <div class="model text-sm font-medium text-gray-900" product="">Song
-                                                                  name</div>
-                                                            <div class="category text-sm text-gray-500" product="">
-                                                                  artist - [album]</div>
-                                                      </div>
-                                                </div>
-                                          </td>
-                                          <td class="brand px-6 py-4 whitespace-nowrap" product="">
-                                                <p class="description text-sm truncate max-w-sm text-gray-900" product="">Lorem ipsum dolor sit amet consectetur adipisicing
-                                                      elit. Suscipit repellat maiores quod at culpa, repudiandae quisquam non aspernatur voluptate
-                                                      illo exercitationem minus quae debitis illum voluptatibus quos sed reiciendis minima!</p>
-                                          </td>
+                                    <?php
+                                    foreach ($albums as $album) {
 
-                                          <td class="px-6 py-4 whitespace-nowrap">
-                                                <span class="quantity inline-flex px-2 text-xs font-semibold leading-5  text-green-800 bg-green-100 rounded-full" product=""> 5.9K </span>
-                                          </td>
-                                          <td class="price px-6 py-4 text-sm text-gray-500 whitespace-nowrap" product="">12-12-2022 13:45</td>
-                                    </tr>
+
+                                    ?>
+                                          <tr class="transition-all hover:bg-gray-100 hover:shadow-lg" onclick="getProduct()" id="">
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                      <div class="flex items-center">
+                                                            <div class="flex-shrink-0 w-12 h-12">
+                                                                  <img class="mx-auto picture h-12 rounded-md" product="" src="assets/img/albums/<?= $album['image'] ?>" alt="" />
+                                                            </div>
+                                                            <div class="ml-4">
+                                                                  <div class="model text-sm font-medium text-gray-900" product="">Song
+                                                                        <?= $album['name'] ?></div>
+                                                                  <!-- <div class="category text-sm text-gray-500" product="">
+                                                                        artist - [album]</div> -->
+                                                            </div>
+                                                      </div>
+                                                </td>
+                                                <td class="brand px-6 py-4 whitespace-nowrap" product="">
+                                                      <p class="description text-sm truncate max-w-sm text-gray-900" product=""><?= $album['description'] ?></p>
+                                                </td>
+
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                      <span class="quantity inline-flex px-2 text-xs font-semibold leading-5  text-green-800 bg-green-100 rounded-full" product=""> 5.9K </span>
+                                                </td>
+                                                <td class="price px-6 py-4 text-sm text-gray-500 whitespace-nowrap" product=""><?= $album['created_at'] ?></td>
+                                          </tr>
+                                    <?php }
+                                    ?>
                               </tbody>
                         </table>
                   </div>

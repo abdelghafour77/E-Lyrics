@@ -5,9 +5,9 @@ class Album extends Connection
 {
       public $id;
 
-      public function allArtists()
+      public function allAlbums()
       {
-            $sql = "SELECT * FROM artists";
+            $sql = "SELECT * FROM albums";
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll();

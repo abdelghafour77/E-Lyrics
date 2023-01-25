@@ -22,8 +22,8 @@ $artists = (new Artist)->allArtists();
                                           <tr class="transition-all hover:bg-gray-100 hover:shadow-lg" onclick="getartist(<?= $artist['id'] ?>)" id="<?= $artist['id'] ?>">
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                       <div class="flex items-center">
-                                                            <div class="flex-shrink-0 md:w-24 w-14">
-                                                                  <img class="picture" artist="<?= $artist['picture'] ?>" src="assets/img/artist/<?= $artist['picture'] ?>" alt="" />
+                                                            <div class="flex-shrink-0 w-12 h-12">
+                                                                  <img class="mx-auto picture h-12 rounded-md" product="" src="assets/img/artists/<?= $artist['picture'] ?>" alt="" />
                                                             </div>
 
                                                       </div>

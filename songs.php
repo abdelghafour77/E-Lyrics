@@ -28,7 +28,7 @@ $statistic->table = "songs";
     require_once 'include/side-dash.php';
     sidebar('songs');
     ?>
-    <div class="flex flex-col flex-1 h-full overflow-hidden">
+    <div class="flex flex-col flex-1 h-full overflow-x-hidden">
       <!-- Navbar -->
       <?php require_once 'include/nav-dash.php'; ?>
       <!-- Main content -->
