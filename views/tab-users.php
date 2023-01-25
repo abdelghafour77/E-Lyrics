@@ -12,7 +12,6 @@ $users = (new User)->allUsers();
                                           <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Picture</th>
                                           <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Name</th>
                                           <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Email</th>
-                                          <!-- <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">price</th> -->
                                     </tr>
                               </thead>
 
@@ -25,8 +24,6 @@ $users = (new User)->allUsers();
                                                             <div class="flex-shrink-0 w-12 h-12">
                                                                   <img class="mx-auto picture h-12 rounded-md" product="" src="assets/img/users/user.png" alt="" />
                                                             </div>
-
-
                                                       </div>
                                                 </td>
                                                 <td class="user px-6 py-4 whitespace-nowrap">
@@ -35,10 +32,8 @@ $users = (new User)->allUsers();
                                                 <td class="user px-6 py-4 whitespace-nowrap">
                                                       <p class="name text-sm truncate max-w-sm text-gray-900" user="<?= $user['email'] ?>"><?= $user['email'] ?></p>
                                                 </td>
-
                                           </tr>
                                     <?php } ?>
-
                               </tbody>
                         </table>
                   </div>

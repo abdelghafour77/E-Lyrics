@@ -1,5 +1,8 @@
 <?php
 require_once 'include/session.php';
+require_once 'models/statistic.php';
+$statistic = new Statistic();
+$statistic->table = "albums";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +40,7 @@ require_once 'include/session.php';
 
         <!-- Table see (https://tailwindui.com/components/application-ui/lists/tables) -->
         <div class="flex mt-6 items-center justify-between">
-          <h3 class="text-xl">All Albums (1)</h3>
+          <h3 class="text-xl">All Albums (<?= $statistic->countt() ?>)</h3>
           <button onclick="openModal()" type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Add Albums</button>
         </div>
 

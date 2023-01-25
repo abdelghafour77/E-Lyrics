@@ -41,15 +41,6 @@ function senddata() {
     var category = $(this).find("select[name='category']").val();
     var album = $(this).find("select[name='album']").val();
     var picture = $(this).find("input[name='picture']")[0].files[0];
-    console.log(picture.name);
-    // var obj = {
-    //   name: name,
-    //   description: description,
-    //   lyrics: lyrics,
-    //   category: category,
-    //   album: album,
-    //   picture: picture
-    // };
     let obj = {}
     obj['name' + i] = name;
     obj['description' + i] = description;
@@ -88,6 +79,7 @@ function senddata() {
     processData: false,
     success: function (response) {
       console.log(response);
+      window.location.href = "songs.php";
     }
   });
 

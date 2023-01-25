@@ -12,7 +12,6 @@ $artists = (new Artist)->allArtists();
                                           <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Picture</th>
                                           <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Name</th>
                                           <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Biography</th>
-                                          <!-- <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">price</th> -->
                                     </tr>
                               </thead>
 
@@ -34,10 +33,8 @@ $artists = (new Artist)->allArtists();
                                                 <td class="artist px-6 py-4 whitespace-nowrap">
                                                       <p class="name text-sm truncate max-w-sm text-gray-900" artist="<?= $artist['biography'] ?>"><?= $artist['biography'] ?></p>
                                                 </td>
-
                                           </tr>
                                     <?php } ?>
-
                               </tbody>
                         </table>
                   </div>

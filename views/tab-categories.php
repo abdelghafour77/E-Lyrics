@@ -12,7 +12,6 @@ $categories = (new Category)->allCategories();
                                           <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Picture</th>
                                           <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Name</th>
                                           <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Description</th>
-                                          <!-- <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">price</th> -->
                                     </tr>
                               </thead>
 
@@ -25,7 +24,6 @@ $categories = (new Category)->allCategories();
                                                             <div class="flex-shrink-0 md:w-24 w-14">
                                                                   <img class="picture" category="<?= $category['image'] ?>" src="assets/img/categories/<?= $category['image'] ?>" alt="" />
                                                             </div>
-                                                            <!--  -->
                                                       </div>
                                                 </td>
                                                 <td class="category px-6 py-4 whitespace-nowrap">
@@ -36,7 +34,6 @@ $categories = (new Category)->allCategories();
                                                 </td>
                                           </tr>
                                     <?php } ?>
-
                               </tbody>
                         </table>
                   </div>

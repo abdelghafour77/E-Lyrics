@@ -32,7 +32,7 @@ $statistic->table = "songs";
       <!-- Navbar -->
       <?php require_once 'include/nav-dash.php'; ?>
       <!-- Main content -->
-      <main class="flex-1 max-h-full p-5 ">
+      <main class="flex-1 min-h-full p-5 ">
         <!-- Main content header -->
         <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row">
           <h1 class="text-2xl font-semibold whitespace-nowrap">Manage Songs</h1>
@@ -88,7 +88,7 @@ $statistic->table = "songs";
                   <div class="mr-2 w-1/3">
                     <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">album</label>
                     <select name="album" id="album" class="album form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
-                      <option value="0" selected>Is a single</option>
+                      <option value="" disabled selected>Select Album</option>
                     </select>
                   </div>
                 </div>

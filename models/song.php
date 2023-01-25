@@ -25,7 +25,7 @@ class Song extends Connection
       {
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute();
+            // header("location: ../songs.php");
+            // die;
       }
 }
-// $a = new Category();
-// var_dump($a->allCategories());

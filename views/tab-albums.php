@@ -19,12 +19,9 @@ $albums = (new Album)->allAlbums();
                                                 at</th>
                                     </tr>
                               </thead>
-
                               <tbody class="bg-white divide-y divide-gray-200">
                                     <?php
                                     foreach ($albums as $album) {
-
-
                                     ?>
                                           <tr class="transition-all hover:bg-gray-100 hover:shadow-lg" onclick="getProduct()" id="">
                                                 <td class="px-6 py-4 whitespace-nowrap">
@@ -35,8 +32,6 @@ $albums = (new Album)->allAlbums();
                                                             <div class="ml-4">
                                                                   <div class="model text-sm font-medium text-gray-900" product="">Song
                                                                         <?= $album['name'] ?></div>
-                                                                  <!-- <div class="category text-sm text-gray-500" product="">
-                                                                        artist - [album]</div> -->
                                                             </div>
                                                       </div>
                                                 </td>
