@@ -13,7 +13,10 @@
 <body class="bg-white">
 
   <!-- navbar -->
-  <?php require_once 'include/navbar.php';  ?>
+  <?php
+  require_once 'include/session.php';
+
+  require_once 'include/navbar.php';  ?>
 
   <!-- Hero section -->
   <section class="relative bg-deep-purple-accent-400">

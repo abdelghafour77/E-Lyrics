@@ -123,3 +123,19 @@ $(function () {
     collapseForm();
   });
 });
+if (document.getElementById('dropdown-card')) {
+  // i need to fix problem of dropdown
+  let dropdown_card = $("#dropdown-card");
+  $("#dropdown").click(function (e) {
+    if (dropdown_card.css('display') == 'block') {
+      dropdown_card.hide();
+    } else {
+      dropdown_card.show();
+    }
+  });
+  $(document).mouseup(function (e) {
+    if (!dropdown_card.is(e.target) && dropdown_card.has(e.target).length === 0) {
+      dropdown_card.hide();
+    }
+  });
+}

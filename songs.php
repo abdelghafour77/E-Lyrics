@@ -18,6 +18,7 @@ $statistic->table = "songs";
   <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet" /> -->
   <!-- Style CSS -->
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
   <title>Songs - E-LYRICS</title>
 </head>
 
@@ -32,7 +33,8 @@ $statistic->table = "songs";
       <!-- Navbar -->
       <?php require_once 'include/nav-dash.php'; ?>
       <!-- Main content -->
-      <main class="flex-1 min-h-full p-5 ">
+      <!-- min-h-full -->
+      <main class="flex-1  p-5 ">
         <!-- Main content header -->
         <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row">
           <h1 class="text-2xl font-semibold whitespace-nowrap">Manage Songs</h1>
@@ -60,11 +62,11 @@ $statistic->table = "songs";
 
   <div id="modal" class="z-20  min-h-screen w-full hidden absolute left-0 top-0 justify-center items-center bg-black bg-opacity-50 overflow-y-auto">
     <div tabindex="0" class="showHide my-8 bg-white rounded shadow-lg md:w-3/4 md:mx-0 w-full mx-2 ">
-      <form id="form_model" action="scripts.php" method="POST" enctype="multipart/form-data">
-        <input type="hidden" id="id_brand" name="id_brand">
-        <input type="hidden" id="type" name="">
+      <form id="form_model" action="controller/songController.php" method="POST" enctype="multipart/form-data">
+        <input type="hidden" id="id_song" name="id_song">
+        <input type="hidden" id="type" name="type">
         <div class="border-b px-4 py-2">
-          <h3>Add Brand</h3>
+          <h3>Add song</h3>
         </div>
         <div class="p-2 overflow-x-auto">
           <div id="inputsParent" class="justify-center divide-y divide-transparentBlack">
@@ -74,7 +76,7 @@ $statistic->table = "songs";
                 <h4 class="text-center font-bold">Song n°<span class="index">1</span></h4>
                 <div class="mb-2">
                   <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">Name</label>
-                  <input type="text" name="name" placeholder="Name" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
+                  <input type="text" name="name" id="name" placeholder="Name" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
                 </div>
                 <div class="mb-2 flex">
                   <div class="mr-2 w-1/3">
@@ -95,13 +97,13 @@ $statistic->table = "songs";
 
                 <div class="mb-2">
                   <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">Description</label>
-                  <textarea name="description" cols="30" rows="3" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"></textarea>
+                  <textarea name="description" id="description" cols="30" rows="3" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"></textarea>
                 </div>
                 <div class="mb-2">
                   <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">Lyrics</label>
-                  <textarea name="lyrics" cols="30" rows="3" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"></textarea>
+                  <textarea name="lyrics" id="lyrics" cols="30" rows="3" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"></textarea>
                 </div>
-                <div class="mb-1">
+                <div class="mb-1" id="picture">
                   <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700">Picture</label>
                   <input name="picture" type="file" class="form-control cursor-pointer block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-describedby="file_input_help" />
                   <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
@@ -112,10 +114,10 @@ $statistic->table = "songs";
         </div>
         <div class="flex justify-end items-center w-100 border-t p-2">
           <button type="button" id="cancel" onclick="closeModal()" class="blur_btn bg-gray-600 hover:bg-gray-700 px-3 py-1 rounded text-white mr-1">cancel</button>
-          <button type="button" id="addmore" onclick="addMore(this)" class="blur_btn bg-gray-600 hover:bg-gray-700 px-3 py-1 rounded text-white mr-1">add</button>
+          <button type="button" id="addmore" onclick="addMore(this)" class="blur_btn bg-green-600 hover:bg-green-700 px-3 py-1 rounded text-white mr-1">add</button>
           <button type="button" id="add" onclick="senddata()" class="blur_btn bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-white mr-1">save</button>
-          <button type="submit" id="update" onclick="setType('update_brand')" class="blur_btn bg-orange-500 hover:bg-orange-600 px-3 py-1 rounded text-white mr-1">update</button>
-          <button type="submit" id="delete" onclick="confirms();setType('delete_brand')" class="blur_btn bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-white mr-1">delete</button>
+          <button type="submit" id="update" onclick="setType('update')" class="blur_btn bg-orange-500 hover:bg-orange-600 px-3 py-1 rounded text-white mr-1">update</button>
+          <button type="submit" id="delete" onclick="setType('delete')" class="blur_btn bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-white mr-1">delete</button>
         </div>
       </form>
     </div>
@@ -123,6 +125,7 @@ $statistic->table = "songs";
   <!-- Modal -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script> -->
   <script src="assets/js/jquery-3.6.3.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
   <script src="assets/js/sweetalert.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/admin-main.js"></script>
@@ -143,6 +146,12 @@ $statistic->table = "songs";
       }
 
     }
+  </script>
+  <script>
+    $(document).ready(function() {
+      $('#songsTable').DataTable();
+
+    });
   </script>
 </body>
 

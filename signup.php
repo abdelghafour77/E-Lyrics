@@ -1,4 +1,7 @@
-<?php include_once 'include/session.php'; ?>
+<?php include_once 'include/session.php';
+if (isset($_SESSION['id'])) {
+  header("location: dashboard.php");
+} ?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,4 +1,8 @@
-<?php include_once 'include/session.php'; ?>
+<?php include_once 'include/session.php';
+if (isset($_SESSION['id'])) {
+  header("location: dashboard.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +11,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/parsley.min.js"></script>
   <title>Login</title>
 </head>
 
@@ -16,7 +21,7 @@
   <div class="backgroundd">
     <div id="coverr" class="min-h-screen flex items-center justify-center mx-auto">
       <div id="form-ui" class="flex items-center justify-center md:justify-start">
-        <form id="form" method="post" action="controller/userController.php">
+        <form id="form" method="post" action="controller/userController.php" data-parsley-validate="">
           <div id="close-form"></div>
           <div id="form-body">
             <div id="welcome-lines">

@@ -4,8 +4,7 @@ const modalBlock = $(".showHide");
 let parent = '';
 let clone = '';
 let inputs
-
-function addMore() {
+function cloneInputs() {
   parent = document.getElementById("inputsParent");
   inputss = document.getElementsByClassName("inputss")[0];
   clone = inputss.cloneNode(true);
@@ -17,6 +16,9 @@ function addMore() {
   for (var i = 0; i < textareas.length; i++) {
     textareas[i].value = "";
   }
+}
+function addMore() {
+  cloneInputs()
   var index = document.getElementsByClassName("index")[document.getElementsByClassName("index").length - 1].innerHTML;
   index++;
   clone.getElementsByClassName("index")[0].innerHTML = index;
@@ -100,11 +102,54 @@ function openModal() {
   $("#delete").removeClass("bloc").addClass("hidden");
   $("#add").removeClass("hidden").addClass("bloc");
   $("#modal").removeClass("hidden").addClass("flex");
-  $("#picture").removeClass("flex").addClass("hidden");
+  $("#picture").removeClass("hidden").addClass("bloc");
+  $("#addmore").removeClass("hidden").addClass("bloc");
   modalBlock.focus();
 }
 
 function closeModal() {
+  parent = document.getElementById("inputsParent");
+  inputss = document.getElementsByClassName("inputss")[0];
+  clone = inputss.cloneNode(true);
+  inputs = clone.getElementsByTagName("input");
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].value = "";
+  }
+  var textareas = clone.getElementsByTagName("textarea");
+  for (var i = 0; i < textareas.length; i++) {
+    textareas[i].value = "";
+  }
+  document.getElementById("inputsParent").innerHTML = "";
   $("#modal").removeClass("flex").addClass("hidden");
+  parent.appendChild(clone);
+}
+function setType(type) {
+  document.getElementById("type").setAttribute("value", type)
+}
+
+function getSong(id) {
+  let song = $('#' + id);
+
+
+  $('#id_song').val(id);
+  $('#name').val(song.find(".name").attr("song"));
+  $('#category').val(song.find(".category").attr("song"));
+
+  $('#artist').val(song.find(".artist").attr("song"));
+  $('#description').val(song.find(".description").attr("song"));
+  $('#lyrics').val(song.find(".lyrics").attr("song"));
+  $("#artist").trigger("change");
+  setTimeout(function () {
+    $('#album').val(song.find(".album").attr("song"));
+    $("#picture").removeClass("flex").addClass("hidden");
+  }, 30);
+
+
+  $("#update").removeClass("hidden").addClass("bloc");
+  $("#delete").removeClass("hidden").addClass("bloc");
+  $("#add").removeClass("bloc").addClass("hidden");
+  $("#addmore").removeClass("bloc").addClass("hidden");
+  $("#modal").removeClass("hidden").addClass("flex");
+  $("#picture").removeClass("hidden").addClass("flex");
 }
 

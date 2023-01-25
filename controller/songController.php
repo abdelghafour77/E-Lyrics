@@ -1,5 +1,17 @@
 <?php
 require_once '../models/song.php';
+var_dump($_POST);
+if (isset($_POST['type'])) {
+  $t = new Song();
+  extract($_POST);
+  if ($_POST['type'] == "update") {
+    $t->update($name, $category, $album, $description, $lyrics, $id_song);
+  } elseif ($_POST['type'] == "delete") {
+    $t->id = $id_song;
+    $t->delete();
+  }
+}
+die;
 $data = $_POST;
 $p = (count($_POST) - 1) / 5;
 
