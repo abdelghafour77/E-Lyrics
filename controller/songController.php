@@ -1,6 +1,7 @@
 <?php
 require_once '../models/song.php';
-var_dump($_POST);
+// var_dump($_POST);
+// var_dump($_FILES);
 if (isset($_POST['type'])) {
   $t = new Song();
   extract($_POST);
@@ -11,7 +12,7 @@ if (isset($_POST['type'])) {
     $t->delete();
   }
 }
-die;
+// die;
 $data = $_POST;
 $p = (count($_POST) - 1) / 5;
 
@@ -29,5 +30,9 @@ for ($i = 0; $i < $p; $i++) {
 }
 $t = implode(",", $e);
 $sql = "INSERT INTO `songs`(`name`, `description`, `lyrics`, `category_id`,`album_id`,`image`) VALUES $t ;";
+// echo $sql;
+// die;
 $t = new Song();
 $t->insert($sql);
+
+die;
